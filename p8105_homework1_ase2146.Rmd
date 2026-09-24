@@ -75,4 +75,11 @@ This didn't work N/A present on the console with a warning message since you can
 mean(pull(df, factor))
 This didn't work N/A present on the console with a warning message since you cannot take the mean of a of the factors I entered (i.e., factors here are text, not numbers).
 
+as.numeric(pull(df, logical))
+This worked, and a various assortment of 0s and 1s were present in the console.
 
+as.numeric(pull(df, character))
+This didn't work with a warning message present in the console that NAs introduced by coercion.
+
+as.numeric(pull(df, factor))
+This worked, and a various assortment of 1s, 2s, and 3s were present in the console to represent the days of the weekend converted into numerical variables.
