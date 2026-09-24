@@ -47,3 +47,32 @@ ggplot(penguins,
     
 ggsave("scatterplot.png")
 
+
+
+## Problem 3
+### Creating a random dataframe!
+
+x <- rnorm(10)
+
+df <- data.frame(
+  x = rnorm(10),
+  logical = c(x > 0),
+  character = c("Netflix", "Peacock", "Hulu", "Paramount", "Apple", "HBO Max", "YouTube", "Fubo", "Prime", "Disney+"),
+  factor = factor(c("Friday", "Saturday", "Sunday", "Friday", "Saturday", "Sunday", "Friday", "Saturday", "Sunday", "Friday"))
+)
+
+library(tidyverse)
+
+mean(pull(df, x))
+This worked, and the mean -0.41 was present in the console.
+
+mean(pull(df, logical))
+This worked, and the mean 0.4 was present in the console.
+
+mean(pull(df, character))
+This didn't work N/A present on the console with a warning message since you cannot take the mean of a of the characters I entered (i.e., characters here are text, not numbers).
+
+mean(pull(df, factor))
+This didn't work N/A present on the console with a warning message since you cannot take the mean of a of the factors I entered (i.e., factors here are text, not numbers).
+
+
