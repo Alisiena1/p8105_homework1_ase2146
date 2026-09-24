@@ -1,17 +1,49 @@
 ---
 title: "Homework 1"
-output: github_document
 author: Ali Early
-uni: ase2146
+output: github_document
 ---
 
 ## Problem 0.1
-Please see header created above with relevant information requested.
+Please see correct file usage, along with the header created above with relevant information.
+
 
 
 ## Problem 0.2
 This is addressed through formatting and attention to variables in the assignment.
 
 
+
 ## Problem 1
 data("penguins", package = "palmerpenguins")
+
+
+The penguin dataset included variables such as the species (species), island (island), bill length (bill_length_mm), bill depth (bill_depth_mm), flipper length (flipper_length_mm), body mass (body_mass_g), sex (sex), and year (year).
+
+
+*Species includes three descriptive factor levels (Adelie, Chinstrap, Gentoo).
+*Island includes three descriptive factor levels (Biscoe, Dream, Torgersen).
+*Bill length is a numerical variable in millimeters.
+*Bill depth is a numerical variable in millimeters.
+*Flipper length is a numerical variable in millimeters.
+*Body mass is a numerical variable in grams.
+*Sex includes two descriptive factor levels (female, male).
+*Year is a numerical variable at year of data collection.
+
+
+In the dataset, there are 344 rows (i.e., 344 penguins whose data was collected) and 8 columns (i.e., the variables listed above). 
+
+
+mean(na.omit(penguins$flipper_length_mm))
+
+I used the code above to find that the mean flipper length of the penguins in this data set is 200.92 mm.
+
+### Making a scatter plot!
+library(ggplot2)
+
+ggplot(penguins, 
+  aes(x = bill_length_mm, y = flipper_length_mm, color = species)) +
+    geom_point()
+    
+ggsave("scatterplot.png")
+
