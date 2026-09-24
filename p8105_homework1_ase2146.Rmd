@@ -4,5 +4,3 @@ output: github_document
 author: Ali Early
 uni: ase2146
 ---
-
-library(tidyverse)
