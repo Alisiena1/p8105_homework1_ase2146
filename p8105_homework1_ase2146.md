@@ -4,7 +4,8 @@ Ali Early
 
 ## Problem 0.1
 
-Please see header created above with relevant information requested.
+Please see correct file usage, along with the header created above with
+relevant information.
 
 ## Problem 0.2
 
@@ -14,3 +15,71 @@ assignment.
 ## Problem 1
 
 data(“penguins”, package = “palmerpenguins”)
+
+The penguin dataset included variables such as the species (species),
+island (island), bill length (bill_length_mm), bill depth
+(bill_depth_mm), flipper length (flipper_length_mm), body mass
+(body_mass_g), sex (sex), and year (year).
+
+*Species includes three descriptive factor levels (Adelie, Chinstrap,
+Gentoo).* Island includes three descriptive factor levels (Biscoe,
+Dream, Torgersen). *Bill length is a numerical variable in millimeters.*
+Bill depth is a numerical variable in millimeters. *Flipper length is a
+numerical variable in millimeters.* Body mass is a numerical variable in
+grams. *Sex includes two descriptive factor levels (female, male).* Year
+is a numerical variable at year of data collection.
+
+In the dataset, there are 344 rows (i.e., 344 penguins whose data was
+collected) and 8 columns (i.e., the variables listed above).
+
+mean(na.omit(penguins\$flipper_length_mm))
+
+I used the code above to find that the mean flipper length of the
+penguins in this data set is 200.92 mm.
+
+### Making a scatter plot!
+
+library(ggplot2)
+
+ggplot(penguins, aes(x = bill_length_mm, y = flipper_length_mm, color =
+species)) + geom_point()
+
+ggsave(“scatterplot.png”)
+
+## Problem 3
+
+### Creating a random dataframe!
+
+x \<- rnorm(10)
+
+df \<- data.frame( x = rnorm(10), logical = c(x \> 0), character =
+c(“Netflix”, “Peacock”, “Hulu”, “Paramount”, “Apple”, “HBO Max”,
+“YouTube”, “Fubo”, “Prime”, “Disney+”), factor = factor(c(“Friday”,
+“Saturday”, “Sunday”, “Friday”, “Saturday”, “Sunday”, “Friday”,
+“Saturday”, “Sunday”, “Friday”)) )
+
+library(tidyverse)
+
+mean(pull(df, x)) \*This worked, and the mean -0.41 was present in the
+console.
+
+mean(pull(df, logical)) \*This worked, and the mean 0.4 was present in
+the console.
+
+mean(pull(df, character)) \*This didn’t work N/A present on the console
+with a warning message since you cannot take the mean of a of the
+characters I entered (i.e., characters here are text, not numbers).
+
+mean(pull(df, factor)) \*This didn’t work N/A present on the console
+with a warning message since you cannot take the mean of a of the
+factors I entered (i.e., factors here are text, not numbers).
+
+as.numeric(pull(df, logical)) \*This worked, and a various assortment of
+0s and 1s were present in the console.
+
+as.numeric(pull(df, character)) \*This didn’t work with a warning
+message present in the console that NAs introduced by coercion.
+
+as.numeric(pull(df, factor)) \*This worked, and a various assortment of
+1s, 2s, and 3s were present in the console to represent the days of the
+weekend converted into numerical variables.
